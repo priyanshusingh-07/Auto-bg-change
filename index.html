@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+}
+.btn{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    /* background-color: aqua; */
+}
+button{
+    padding: 50px;
+    font-size:25px ;
+    border-radius: 20px;
+    
+}
+button:hover{
+    cursor: pointer;
+}
+    </style>
+
+</head>
+<body>
+    <div class="btn">
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+    </div>
+    <script>function color(){
+        const r=Math.floor(Math.random()*256);
+        const g=Math.floor(Math.random()*256);
+        const b=Math.floor(Math.random()*256);
+        let c=document.body.style.backgroundColor=`rgb(${r},${g},${b})`
+        console.log(c);    
+    }
+    
+    var begin
+    document.querySelector('#start').addEventListener('click',function(){
+        begin=setInterval(function(){
+            color();
+            console.log("start");
+            
+        },500)
+    })
+    document.querySelector('#stop').addEventListener('click',function(){
+        clearInterval(begin)
+        begin=null
+        console.log("stop"); 
+    })</script>
+</body>
+</html>
